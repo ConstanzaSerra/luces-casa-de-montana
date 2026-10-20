@@ -1,0 +1,21 @@
+{
+  "name": "luces-casas-de-montana",
+  "private": true,
+  "description": "Sitio web de Luces Casas de Montaña (Villa del Dique, Calamuchita, Córdoba)",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c yellow,cyan \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w client",
+    "start": "npm run start -w server",
+    "test": "npm test -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "engines": {
+    "node": ">=20.6"
+  }
+}

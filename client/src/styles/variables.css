@@ -1,0 +1,25 @@
+/* Paleta y tipografía tomadas de los mockups. Cambiá un color acá y se actualiza en todo el sitio. */
+:root {
+  --color-ink: #1f232b;
+  --color-ink-soft: #2b303a;
+  --color-mist: #dcdcdc;
+  --color-paper: #f3f1ed;
+  --color-white: #ffffff;
+  --color-text-muted: #6b6f78;
+  --color-accent: #d9893b;
+  --color-accent-dark: #b86d27;
+  --color-whatsapp: #25d366;
+  --color-error: #c0392b;
+  --color-success: #2e7d4f;
+
+  --font-display: 'Italiana', Georgia, serif;
+  --font-body: 'Red Hat Display', system-ui, sans-serif;
+  --font-script: 'Great Vibes', cursive;
+
+  --container: 1160px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --section-space: clamp(64px, 10vw, 120px);
+  --radius: 6px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --nav-height: 72px;
+}

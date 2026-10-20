@@ -1,0 +1,31 @@
+.fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem;
+  border-radius: 999px;
+  background: var(--color-whatsapp);
+  color: var(--color-white);
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+.fab:hover {
+  transform: scale(1.05);
+}
+
+.label {
+  font-weight: 500;
+  padding-right: 0.4rem;
+}
+
+@media (max-width: 600px) {
+  .label {
+    display: none;
+  }
+}
