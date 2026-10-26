@@ -32,14 +32,25 @@ client/                      → Frontend (React + Vite)
   src/features/contact/      → formulario: UI, hook de estado, validación y llamada a la API
   src/App.jsx                → orden de las secciones
 
-server/                      → Backend (Node + Express)
+server/                      → Backend para Railway (Node + Express)
   src/routes/                → define las URLs (/api/contact)
   src/controllers/           → recibe el request y arma la respuesta
-  src/validators/            → valida y limpia los datos del formulario
-  src/services/              → envío de mails (nodemailer)
+  src/services/              → envío de mails por SMTP (nodemailer)
   src/middlewares/           → manejo de errores y 404
-  tests/                     → tests con node:test + supertest
+  tests/                     → tests con node:test (Express y función de Cloudflare)
+
+functions/                   → Backend para Cloudflare Pages (un archivo por ruta)
+  api/contact.js             → POST /api/contact
+  api/health.js              → GET /api/health
+
+shared/contact/              → lógica común a los dos backends
+  validator.js               → valida y limpia los datos del formulario
+  emailTemplate.js           → arma el mail de la consulta
+  resendMailer.js            → envía el mail con la API de Resend (Cloudflare)
 ```
+
+Hay **dos formas de desplegar** con el mismo código: Railway usa `server/` y Cloudflare usa `functions/`.
+Las dos comparten `shared/`, así que un cambio en la validación o en el mail se hace una sola vez.
 
 ## Cambios frecuentes
 
@@ -53,6 +64,7 @@ server/                      → Backend (Node + Express)
 | Colores o tipografías           | `client/src/styles/variables.css`         |
 | Orden o cantidad de secciones   | `client/src/App.jsx`                      |
 | Mensaje de WhatsApp por defecto | `client/src/utils/whatsapp.js`            |
+| Validación o texto del mail     | `shared/contact/`                         |
 
 ## Pendientes
 
@@ -67,3 +79,21 @@ server/                      → Backend (Node + Express)
 El repo ya incluye `railway.json`: Railway instala, compila el front (`npm run build`) y levanta Express (`npm start`),
 que sirve la API y el sitio en el mismo dominio. Railway define `PORT` solo.
 En **Variables** del servicio cargá `CONTACT_TO`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER` y `SMTP_PASS` (ver `server/.env.example`).
+
+## Deploy en Cloudflare Pages (gratis)
+
+1. Creá una cuenta en [Resend](https://resend.com) con el mail que recibe las consultas y generá una **API key**.
+   Sin dominio propio, Resend solo envía a la casilla de tu cuenta (justo la que necesitamos).
+2. En Cloudflare: **Workers & Pages → Create → Pages → Connect to Git** y elegí este repo.
+   - Production branch: `main` (o `cloudflare` mientras se prueba)
+   - Build command: `npm run build`
+   - Build output directory: `client/dist`
+   - Root directory: vacío
+3. En **Settings → Variables and Secrets** cargá `RESEND_API_KEY` (como secreto) y `CONTACT_TO`.
+   Opcional: `MAIL_FROM` cuando tengas un dominio verificado en Resend.
+4. Volvé a desplegar y probá el formulario.
+5. Recomendado: en **Security → WAF → Rate limiting rules** limitá `/api/contact` (por ejemplo 5 pedidos cada 10 minutos por IP).
+   En Railway ese límite lo hace Express; en Cloudflare se configura en el panel.
+
+Para probar la versión de Cloudflare en tu compu: copiá `.dev.vars.example` como `.dev.vars` y corré `npm run dev:cloudflare`
+(abre el sitio en http://localhost:8788).

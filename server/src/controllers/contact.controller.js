@@ -1,7 +1,6 @@
-import { isSpam, validateContact } from '../validators/contact.validator.js';
+import { isSpam, validateContact } from '../../../shared/contact/validator.js';
+import { SUCCESS_MESSAGE } from '../../../shared/contact/emailTemplate.js';
 import { sendContactEmail } from '../services/mail.service.js';
-
-const SUCCESS_MESSAGE = '¡Gracias! Recibimos tu consulta y te respondemos a la brevedad.';
 
 export async function createContact(req, res, next) {
   try {

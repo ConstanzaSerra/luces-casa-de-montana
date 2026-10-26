@@ -1,0 +1,4 @@
+# Configuración de Cloudflare Pages (también la usa `npx wrangler pages dev` para probar en local).
+name = "luces-casa-de-montana"
+pages_build_output_dir = "client/dist"
+compatibility_date = "2026-10-01"
