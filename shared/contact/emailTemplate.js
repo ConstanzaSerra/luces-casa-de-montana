@@ -17,11 +17,11 @@ export function buildContactEmail(contact) {
 
   return {
     subject: `Nueva consulta web de ${contact.name}`,
-    text: `${rows.map(([k, v]) => `${k}: ${v}`).join('\n')}\n\n${contact.message}`,
+    text: `${rows.map(([k, v]) => `${k}: ${v}`).join('\n')}\n\n${contact.message || '(sin mensaje)'}`,
     html: `
       <h2>Nueva consulta desde la web</h2>
       <table>${rows.map(([k, v]) => `<tr><td><strong>${k}</strong></td><td>${escapeHtml(v)}</td></tr>`).join('')}</table>
-      <p>${escapeHtml(contact.message).replace(/\n/g, '<br>')}</p>`,
+      <p>${contact.message ? escapeHtml(contact.message).replace(/\n/g, '<br>') : '<em>(sin mensaje)</em>'}</p>`,
   };
 }
 

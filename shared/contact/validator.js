@@ -21,7 +21,6 @@ export function validateContact(body = {}) {
 
   if (data.name.length < 2) errors.name = 'El nombre es obligatorio.';
   if (!EMAIL_REGEX.test(data.email)) errors.email = 'El email no es válido.';
-  if (data.message.length < 10) errors.message = 'El mensaje debe tener al menos 10 caracteres.';
   if (data.checkIn && !DATE_REGEX.test(data.checkIn)) errors.checkIn = 'Fecha de llegada inválida.';
   if (data.checkOut && !DATE_REGEX.test(data.checkOut)) errors.checkOut = 'Fecha de salida inválida.';
   if (data.checkIn && data.checkOut && data.checkOut <= data.checkIn) {

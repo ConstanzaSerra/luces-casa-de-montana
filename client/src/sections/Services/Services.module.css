@@ -5,20 +5,62 @@
 }
 
 .card {
+  position: relative;
   overflow: hidden;
   border-radius: var(--radius);
   background: var(--color-white);
   box-shadow: var(--shadow);
+  transition: transform 0.25s;
 }
 
-.card img {
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.cover {
+  position: relative;
+}
+
+.cover img {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
 }
 
+.badge {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(31, 35, 43, 0.75);
+  color: var(--color-white);
+  font-size: 0.8rem;
+}
+
 .cardBody {
   padding: 1.5rem;
+}
+
+.openGallery {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+/* Hace que toda la tarjeta sea clickeable, no solo el título. */
+.openGallery::after {
+  content: '';
+  position: absolute;
+  inset: 0;
 }
 
 .cardBody h3 {
@@ -80,4 +122,13 @@
 .notice ul {
   margin: 0;
   padding-left: 1.1rem;
+}
+
+.card:focus-within {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.openGallery:focus-visible {
+  outline: none;
 }

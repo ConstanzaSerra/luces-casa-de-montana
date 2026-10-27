@@ -11,6 +11,13 @@
   margin-top: 48px;
 }
 
+.gallery button {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
 .gallery img {
   width: 100%;
   aspect-ratio: 3 / 4;

@@ -1,6 +1,7 @@
 import { Clock, Mail, MapPin, MessageCircle } from 'lucide-react';
 import Section from '../../components/ui/Section/Section';
 import Button from '../../components/ui/Button/Button';
+import SocialLinks from '../../components/ui/SocialLinks/SocialLinks';
 import ContactForm from '../../features/contact/ContactForm';
 import { SITE } from '../../config/site';
 import { buildWhatsappLink } from '../../utils/whatsapp';
@@ -20,10 +21,8 @@ export default function Contact() {
       <div className={styles.banner} style={{ '--contact-image': `url(${backgroundImage})` }}>
         <p className={styles.eyebrow}>¿Por qué reservar a través de la web?</p>
         <h2 className={styles.title}>Reservá directo y obtené la mejor tarifa</h2>
-        <p>
-          Reservar por la web garantiza la mejor tarifa de nuestras 4 unidades. Atención permanente por la web,
-          Instagram, Facebook, TikTok y WhatsApp Business.
-        </p>
+        <p>Reservar por la web garantiza la mejor tarifa de nuestras 4 unidades.</p>
+        <p>Atención permanente por la web, Instagram, Facebook, TikTok y WhatsApp Business.</p>
         <Button href={buildWhatsappLink()} size="lg">
           Reservar por WhatsApp
         </Button>
@@ -47,6 +46,7 @@ export default function Contact() {
                 </li>
               ))}
             </ul>
+            <SocialLinks className={styles.social} />
           </div>
           <ContactForm />
         </div>

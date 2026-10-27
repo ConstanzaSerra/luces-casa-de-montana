@@ -16,10 +16,11 @@ export const SITE = {
   checkIn: '14 h',
   checkOut: '10 h',
   businessHours: 'Lunes a domingo de 8 a 20 h',
+  // Redes sociales: pegá el link al perfil. Si una queda vacía (''), su ícono no se muestra.
   social: {
-    // TODO: reemplazar por los perfiles reales.
-    facebook: 'https://www.facebook.com/',
-    instagram: 'https://www.instagram.com/',
-    tiktok: 'https://www.tiktok.com/',
+    // TODO: reemplazar por el perfil (https://www.instagram.com/usuario/); por ahora apunta a una publicación.
+    instagram: 'https://www.instagram.com/p/DTf_Tl6kbUV/',
+    facebook: '',
+    tiktok: '',
   },
 };

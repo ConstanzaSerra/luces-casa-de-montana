@@ -27,7 +27,12 @@ describe('POST /api/contact', () => {
     assert.equal(res.status, 400);
     assert.ok(res.body.fields.name);
     assert.ok(res.body.fields.email);
-    assert.ok(res.body.fields.message);
+  });
+
+  it('acepta una consulta sin mensaje (es opcional)', async () => {
+    const { message: _unused, ...withoutMessage } = validContact;
+    const res = await request(app).post('/api/contact').send(withoutMessage);
+    assert.equal(res.status, 201);
   });
 
   it('rechaza una salida anterior a la llegada', async () => {

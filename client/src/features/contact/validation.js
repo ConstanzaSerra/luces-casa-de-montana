@@ -23,7 +23,6 @@ export function validateContact(values) {
   if (values.checkIn && values.checkOut && values.checkOut <= values.checkIn) {
     errors.checkOut = 'La salida tiene que ser posterior a la llegada.';
   }
-  if (values.message.trim().length < 10) errors.message = 'Contanos un poco más (mínimo 10 caracteres).';
 
   return errors;
 }

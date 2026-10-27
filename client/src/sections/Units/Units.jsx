@@ -1,10 +1,14 @@
 import Section from '../../components/ui/Section/Section';
+import Lightbox from '../../components/ui/Lightbox/Lightbox';
+import { useLightbox } from '../../hooks/useLightbox';
 import { UNITS } from '../../data/units';
 import { GALLERY } from '../../data/gallery';
 import UnitCard from './UnitCard';
 import styles from './Units.module.css';
 
 export default function Units() {
+  const lightbox = useLightbox();
+
   return (
     <Section
       id="cabanas"
@@ -20,10 +24,19 @@ export default function Units() {
       </div>
 
       <div className={styles.gallery}>
-        {GALLERY.map(({ src, alt }) => (
-          <img key={alt} src={src} alt={alt} loading="lazy" />
+        {GALLERY.map(({ src, alt }, index) => (
+          <button
+            key={alt}
+            type="button"
+            onClick={() => lightbox.open('Luces Casas de Montaña', GALLERY, index)}
+            aria-label={`Ampliar: ${alt}`}
+          >
+            <img src={src} alt={alt} loading="lazy" />
+          </button>
         ))}
       </div>
+
+      <Lightbox title={lightbox.title} images={lightbox.images} startIndex={lightbox.startIndex} onClose={lightbox.close} />
     </Section>
   );
 }

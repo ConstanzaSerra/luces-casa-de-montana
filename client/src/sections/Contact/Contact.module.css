@@ -78,3 +78,7 @@
     grid-template-columns: 1fr;
   }
 }
+
+.social {
+  margin-top: 2rem;
+}

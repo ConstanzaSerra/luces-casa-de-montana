@@ -12,27 +12,42 @@ import {
   Armchair,
   Cctv,
 } from 'lucide-react';
-import pileta from '../assets/images/pileta-cochera.jpg';
+import pileta from '../assets/images/pileta.jpg';
+import cochera from '../assets/images/cochera.jpg';
 import ropaDeCama from '../assets/images/ropa-de-cama.jpg';
 import vistaAerea from '../assets/images/vista-aerea.jpg';
+import complejoFrente from '../assets/images/complejo-frente.jpg';
+import dormitorio from '../assets/images/unidad-6.jpg';
 
-// Servicios destacados (tarjetas con foto).
+/**
+ * Servicios destacados: cada tarjeta abre una galería con sus fotos.
+ * Para sumar fotos, importalas arriba y agregalas al arreglo `images` que corresponda.
+ * La primera foto es la que se ve en la tarjeta.
+ */
 export const HIGHLIGHTS = [
   {
-    title: 'Recepción 24 horas',
-    description: 'Check-in a partir de las 14 h y check-out hasta las 10 h.',
-    image: vistaAerea,
+    title: 'Pileta con vista panorámica',
+    description: 'Amplio deck para disfrutar los mejores atardeceres del Valle de Calamuchita.',
+    images: [
+      { src: pileta, alt: 'Pileta con vista a las sierras' },
+      { src: vistaAerea, alt: 'Vista aérea del complejo con la pileta' },
+    ],
   },
   {
-    title: 'Pileta con vista panorámica',
-    description:
-      'Amplio deck para disfrutar los mejores atardeceres del Valle de Calamuchita y cocheras techadas para todos los huéspedes.',
-    image: pileta,
+    title: 'Cochera techada',
+    description: 'Cocheras amplias y techadas para todos los huéspedes.',
+    images: [
+      { src: cochera, alt: 'Cochera techada del complejo' },
+      { src: complejoFrente, alt: 'Ingreso al complejo' },
+    ],
   },
   {
     title: 'Ropa de cama',
     description: 'Cómodas camas Queen con colchones de resortes.',
-    image: ropaDeCama,
+    images: [
+      { src: ropaDeCama, alt: 'Ropa de cama blanca' },
+      { src: dormitorio, alt: 'Dormitorio con cama Queen' },
+    ],
   },
 ];
 

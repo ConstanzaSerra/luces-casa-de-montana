@@ -27,7 +27,7 @@ export default function ContactForm() {
         <FormField label="Llegada" name="checkIn" type="date" min={today} value={values.checkIn} onChange={handleChange} />
         <FormField label="Salida" name="checkOut" type="date" min={values.checkIn || today} value={values.checkOut} onChange={handleChange} error={errors.checkOut} />
         <FormField
-          label="Mensaje *"
+          label="Mensaje (opcional)"
           name="message"
           as="textarea"
           rows={4}

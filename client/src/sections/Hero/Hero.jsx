@@ -8,7 +8,7 @@ import styles from './Hero.module.css';
 
 const QUICK_FACTS = [
   { icon: Home, label: '4 cabañas modernas' },
-  { icon: Waves, label: 'Pileta con vista al lago' },
+  { icon: Waves, label: 'Pileta con vista al valle' },
   { icon: Clock, label: `Check-in ${SITE.checkIn} · Check-out ${SITE.checkOut}` },
 ];
 

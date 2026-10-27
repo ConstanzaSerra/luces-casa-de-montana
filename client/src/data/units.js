@@ -16,7 +16,7 @@ export const UNITS = [
     guests: 2,
     beds: '1 cama matrimonial',
     description:
-      'Ideal para parejas: living comedor luminoso, cocina equipada y baño completo con vista a las sierras.',
+      'Ideal para parejas: living comedor luminoso y cocina equipada.',
     price: null,
     images: [
       { src: unidad1, alt: 'Living comedor con ventanal' },
@@ -30,7 +30,7 @@ export const UNITS = [
     guests: 4,
     beds: '1 cama matrimonial y 2 camas individuales',
     description:
-      'Pensada para familias o grupos: ambientes amplios, deck propio con parrilla y salida directa al parque.',
+      'Pensada para familias o grupos: ambientes amplios y una amplia galería con mesa y asador.',
     price: null,
     images: [
       { src: unidad6, alt: 'Dormitorio con cama matrimonial' },
