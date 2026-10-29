@@ -18,9 +18,8 @@ export const SITE = {
   businessHours: 'Lunes a domingo de 8 a 20 h',
   // Redes sociales: pegá el link al perfil. Si una queda vacía (''), su ícono no se muestra.
   social: {
-    // TODO: reemplazar por el perfil (https://www.instagram.com/usuario/); por ahora apunta a una publicación.
-    instagram: 'https://www.instagram.com/p/DTf_Tl6kbUV/',
-    facebook: '',
+    instagram: 'https://www.instagram.com/lucescasasdemontana/',
+    facebook: 'https://www.facebook.com/LucesVilladelDique/',
     tiktok: '',
   },
 };
