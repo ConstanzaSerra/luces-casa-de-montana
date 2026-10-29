@@ -44,7 +44,7 @@
   text-transform: uppercase;
 }
 
-.info ul {
+.items {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -53,23 +53,23 @@
   list-style: none;
 }
 
-.info li {
+.items li {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
 }
 
-.info svg {
+.items svg {
   flex-shrink: 0;
   margin-top: 3px;
   color: var(--color-accent);
 }
 
-.info a {
+.items a {
   text-decoration: none;
 }
 
-.info a:hover {
+.items a:hover {
   text-decoration: underline;
 }
 

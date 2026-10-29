@@ -32,7 +32,7 @@ export default function Contact() {
         <div className={styles.grid}>
           <div className={styles.info}>
             <h3>Contacto</h3>
-            <ul>
+            <ul className={styles.items}>
               {CONTACT_ITEMS.map(({ icon: Icon, label, href }) => (
                 <li key={label}>
                   <Icon size={20} aria-hidden="true" />
