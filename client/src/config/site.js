@@ -20,6 +20,6 @@ export const SITE = {
   social: {
     instagram: 'https://www.instagram.com/lucescasasdemontana/',
     facebook: 'https://www.facebook.com/LucesVilladelDique/',
-    tiktok: '',
+    tiktok: 'https://www.tiktok.com/@luces_casas_de_montana',
   },
 };
